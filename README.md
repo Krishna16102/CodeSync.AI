@@ -1,6 +1,7 @@
 CodeSync.AI — AI-Powered Collaborative Development Platform
 CodeSync.AI is a full-stack, AI-powered development platform that brings code generation, project management, and team collaboration into a single workspace. It allows developers to describe what they want to build using natural-language prompts, receive AI-generated code, manage project files.
 Built with React, Java Spring Boot, PostgreSQL, and the AI API, CodeSync.AI combines AI-assisted development with role-based project sharing, allowing teams to work together while maintaining control over project access.
+
 🚀 Key Features
 
 🤖 AI-Powered Code Generation
