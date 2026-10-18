@@ -1,0 +1,147 @@
+/* GENERATION PROGRESS — CodeSync.AI blue + black theme */
+.generation-progress {
+  width: min(900px, 100%);
+  margin: 0 auto 20px;
+  padding: 16px 18px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(
+      circle at 5% 0%,
+      rgba(59, 130, 246, 0.08),
+      transparent 40%
+    ),
+    #0b1220;
+  border: 1px solid rgba(96, 165, 250, 0.15);
+  border-radius: 14px;
+  color: #cbd5e1;
+  font-size: 13px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 24px rgba(59, 130, 246, 0.05);
+  animation: generationAppear 0.2s ease-out;
+}
+
+/* subtle blue border glow */
+.generation-progress::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18px;
+  right: 18px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(96, 165, 250, 0.35),
+    transparent
+  );
+  pointer-events: none;
+}
+
+/* TITLE */
+.generation-progress-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 14px;
+  color: #f8fafc;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* SPARK */
+.generation-spark {
+  color: #60a5fa;
+  font-size: 17px;
+  filter: drop-shadow(0 0 6px rgba(96, 165, 250, 0.3));
+  animation: sparkPulse 1.2s infinite;
+}
+
+/* STEPS */
+.generation-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 26px;
+  color: #64748b;
+  transition: color 0.2s ease;
+}
+
+.generation-step.active {
+  color: #cbd5e1;
+}
+
+/* completed step icon */
+.generation-step-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(96, 165, 250, 0.14);
+  color: #60a5fa;
+  font-size: 11px;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.05);
+}
+
+/* SPINNER */
+.generation-spinner {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  border: 2px solid #1e293b;
+  border-top-color: #60a5fa;
+  border-right-color: rgba(59, 130, 246, 0.3);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 5px rgba(96, 165, 250, 0.2));
+  animation: generationSpin 0.8s linear infinite;
+}
+
+/* ANIMATIONS */
+@keyframes generationSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sparkPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes generationAppear {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .generation-progress {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .generation-progress-title {
+    font-size: 13px;
+  }
+
+  .generation-step {
+    font-size: 12px;
+  }
+}

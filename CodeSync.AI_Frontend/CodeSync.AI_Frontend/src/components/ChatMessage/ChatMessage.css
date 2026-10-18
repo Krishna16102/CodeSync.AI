@@ -1,0 +1,127 @@
+/* CHAT MESSAGE — CodeSync.AI blue + black theme */
+.chat-message {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  box-sizing: border-box;
+  border-radius: 14px;
+  color: #f8fafc;
+}
+
+/* USER MESSAGE */
+.user-message {
+  background: radial-gradient(
+      circle at 0% 50%,
+      rgba(59, 130, 246, 0.07),
+      transparent 45%
+    ),
+    rgba(11, 18, 32, 0.48);
+  border: 1px solid rgba(96, 165, 250, 0.09);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* AI MESSAGE */
+.ai-message {
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+/* MESSAGE AVATAR */
+.message-avatar {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.16),
+    rgba(37, 99, 235, 0.09)
+  );
+  border: 1px solid rgba(96, 165, 250, 0.16);
+  color: #60a5fa;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 0 18px rgba(59, 130, 246, 0.08);
+}
+
+/* MESSAGE CONTENT */
+.message-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* MESSAGE ROLE */
+.message-role {
+  color: #f8fafc;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  letter-spacing: -0.1px;
+}
+
+/* MESSAGE TEXT */
+.message-text {
+  color: #cbd5e1;
+  font-size: 15px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* USER MESSAGE TEXT */
+.user-message .message-text {
+  color: #e2e8f0;
+}
+
+/* AI MESSAGE TEXT */
+.ai-message .message-text {
+  color: #cbd5e1;
+}
+
+/* AI MESSAGE AVATAR */
+.ai-message .message-avatar {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  border-color: rgba(96, 165, 250, 0.25);
+  color: #ffffff;
+  box-shadow: 0 0 22px rgba(59, 130, 246, 0.16);
+}
+
+/* USER MESSAGE AVATAR */
+.user-message .message-avatar {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(96, 165, 250, 0.13);
+  color: #93c5fd;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.06);
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .chat-message {
+    gap: 11px;
+    padding: 16px 14px;
+    border-radius: 12px;
+  }
+
+  .message-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    font-size: 12px;
+  }
+
+  .message-role {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .message-text {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+}

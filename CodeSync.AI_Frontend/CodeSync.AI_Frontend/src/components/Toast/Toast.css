@@ -1,0 +1,134 @@
+/* TOAST CONTAINER */
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: min(380px, calc(100vw - 40px));
+  pointer-events: none;
+}
+
+/* TOAST */
+.toast {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px 12px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  background: #0b1220;
+  color: #e2e8f0;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+  pointer-events: auto;
+  animation: toastSlideIn 0.22s ease-out;
+}
+
+/* ICON */
+.toast-icon {
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* MESSAGE */
+.toast-message {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  word-break: break-word;
+}
+
+/* CLOSE */
+.toast-close {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #64748b;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.toast-close:hover {
+  background: #1e293b;
+  color: #f8fafc;
+}
+
+/* SUCCESS */
+.toast-success {
+  border-color: rgba(34, 197, 94, 0.25);
+}
+
+.toast-success .toast-icon {
+  background: rgba(34, 197, 94, 0.12);
+  color: #4ade80;
+}
+
+/* ERROR */
+.toast-error {
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+.toast-error .toast-icon {
+  background: rgba(239, 68, 68, 0.12);
+  color: #f87171;
+}
+
+/* WARNING */
+.toast-warning {
+  border-color: rgba(234, 179, 8, 0.25);
+}
+
+.toast-warning .toast-icon {
+  background: rgba(234, 179, 8, 0.12);
+  color: #facc15;
+}
+
+/* INFO */
+.toast-info {
+  border-color: rgba(37, 99, 235, 0.25);
+}
+
+.toast-info .toast-icon {
+  background: rgba(37, 99, 235, 0.12);
+  color: #60a5fa;
+}
+
+/* ANIMATION */
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .toast-container {
+    top: 12px;
+    right: 12px;
+    width: calc(100vw - 24px);
+  }
+}

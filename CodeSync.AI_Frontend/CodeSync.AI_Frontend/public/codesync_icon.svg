@@ -1,0 +1,108 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050B18"/>
+      <stop offset="100%" stop-color="#040816"/>
+    </linearGradient>
+
+    <radialGradient id="glow1" cx="12%" cy="10%" r="60%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="glow2" cx="90%" cy="92%" r="55%">
+      <stop offset="0%" stop-color="#2563EB" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="strokeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#93C5FD"/>
+      <stop offset="45%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+
+    <linearGradient id="border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.45"/>
+      <stop offset="50%" stop-color="#3B82F6" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0.35"/>
+    </linearGradient>
+
+    <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#EFF6FF"/>
+      <stop offset="60%" stop-color="#93C5FD"/>
+      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="glowSoft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="9" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="glowTight" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- base -->
+  <rect x="0" y="0" width="512" height="512" rx="112" fill="url(#bg)"/>
+  <rect x="0" y="0" width="512" height="512" rx="112" fill="url(#glow1)"/>
+  <rect x="0" y="0" width="512" height="512" rx="112" fill="url(#glow2)"/>
+
+  <!-- faint circuit dot grid, clipped to rounded square -->
+  <g clip-path="url(#clip)">
+    <clipPath id="clip"><rect x="0" y="0" width="512" height="512" rx="112"/></clipPath>
+    <g fill="#3B82F6" opacity="0.10">
+      <circle cx="70" cy="70" r="3"/>
+      <circle cx="70" cy="120" r="3"/>
+      <circle cx="120" cy="70" r="3"/>
+      <circle cx="442" cy="442" r="3"/>
+      <circle cx="442" cy="392" r="3"/>
+      <circle cx="392" cy="442" r="3"/>
+      <circle cx="442" cy="70" r="3"/>
+      <circle cx="70" cy="442" r="3"/>
+    </g>
+  </g>
+
+  <!-- signature mark: a monogram fusing < / > code brackets into a continuous
+       infinity-sync ribbon, with a single luminous node at the crossing —
+       the "AI" pulse point where code meets sync -->
+  <g transform="translate(256,256)">
+
+    <!-- ribbon: one continuous stroke forming < and > joined through a sync twist -->
+    <path d="
+      M -18 -104
+      C -84 -104, -132 -56, -132 0
+      C -132 56, -84 92, -22 92
+      C 10 92, 34 78, 34 50
+      C 34 26, 16 12, -8 12
+      C -30 12, -46 26, -46 46
+      "
+      fill="none" stroke="url(#strokeGrad)" stroke-width="26"
+      stroke-linecap="round" filter="url(#glowSoft)"/>
+
+    <path d="
+      M 18 104
+      C 84 104, 132 56, 132 0
+      C 132 -56, 84 -92, 22 -92
+      C -10 -92, -34 -78, -34 -50
+      C -34 -26, -16 -12, 8 -12
+      C 30 -12, 46 -26, 46 -46
+      "
+      fill="none" stroke="url(#strokeGrad)" stroke-width="26"
+      stroke-linecap="round" filter="url(#glowSoft)"/>
+
+    <!-- central AI node -->
+    <circle cx="0" cy="0" r="34" fill="url(#nodeGlow)" filter="url(#glowTight)"/>
+    <circle cx="0" cy="0" r="12" fill="#F8FAFC"/>
+  </g>
+
+  <!-- 1px gradient border -->
+  <rect x="1" y="1" width="510" height="510" rx="111" fill="none" stroke="url(#border)" stroke-width="1.5"/>
+</svg>

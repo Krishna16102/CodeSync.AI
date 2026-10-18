@@ -1,0 +1,1417 @@
+
+.members-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 24px;
+
+    background:
+        rgba(2, 6, 23, .76);
+
+    backdrop-filter:
+        blur(8px);
+}
+
+
+/* =========================================================
+   MEMBERS PANEL
+========================================================= */
+
+.members-panel {
+
+    width:
+        min(680px, 100%);
+
+    max-height:
+        82vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    position: relative;
+
+    border:
+        1px solid
+        rgba(96, 165, 250, .15);
+
+    border-radius:
+        18px;
+
+    background:
+
+        radial-gradient(
+            circle at 0% 0%,
+            rgba(59, 130, 246, .08),
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 100% 100%,
+            rgba(37, 99, 235, .05),
+            transparent 40%
+        ),
+
+        rgba(11, 18, 32, .96);
+
+    color:
+        #E2E8F0;
+
+    box-shadow:
+
+        0 24px 70px
+        rgba(0, 0, 0, .55),
+
+        0 0 40px
+        rgba(59, 130, 246, .06);
+}
+
+
+/* =========================================================
+   SUBTLE BLUE TOP GLOW
+========================================================= */
+
+.members-panel::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        22px;
+
+    right:
+        22px;
+
+    height:
+        1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(96, 165, 250, .35),
+            transparent
+        );
+
+    pointer-events:
+        none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.members-header {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    justify-content:
+        space-between;
+
+    padding:
+        24px 26px 20px;
+
+    border-bottom:
+        1px solid
+        rgba(96, 165, 250, .08);
+}
+
+
+.members-header h2 {
+
+    margin:
+        0;
+
+    color:
+        #F8FAFC;
+
+    font-size:
+        20px;
+
+    font-weight:
+        650;
+
+    letter-spacing:
+        -.02em;
+}
+
+
+.members-header p {
+
+    margin:
+        6px 0 0;
+
+    color:
+        #64748B;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.5;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.members-close-btn {
+
+    width:
+        34px;
+
+    height:
+        34px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid
+        transparent;
+
+    border-radius:
+        9px;
+
+    background:
+        transparent;
+
+    color:
+        #64748B;
+
+    font-size:
+        23px;
+
+    line-height:
+        1;
+
+    cursor:
+        pointer;
+
+    transition:
+        background .18s ease,
+        border-color .18s ease,
+        color .18s ease;
+}
+
+
+.members-close-btn:hover {
+
+    background:
+        rgba(239, 68, 68, .10);
+
+    border-color:
+        rgba(248, 113, 113, .12);
+
+    color:
+        #F87171;
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.members-summary {
+
+    display:
+        flex;
+
+    gap:
+        12px;
+
+    padding:
+        16px 26px;
+
+    border-bottom:
+        1px solid
+        rgba(96, 165, 250, .07);
+}
+
+
+.summary-item {
+
+    min-width:
+        145px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        14px;
+
+    padding:
+        11px 13px;
+
+    border:
+        1px solid
+        rgba(96, 165, 250, .10);
+
+    border-radius:
+        10px;
+
+    background:
+        rgba(59, 130, 246, .035);
+}
+
+
+.summary-label {
+
+    color:
+        #64748B;
+
+    font-size:
+        12px;
+
+    font-weight:
+        500;
+}
+
+
+.summary-count {
+
+    color:
+        #60A5FA;
+
+    font-size:
+        13px;
+
+    font-weight:
+        650;
+}
+
+
+/* =========================================================
+   MEMBER LIST
+========================================================= */
+
+.members-list {
+
+    flex:
+        1;
+
+    min-height:
+        180px;
+
+    overflow-y:
+        auto;
+
+    padding:
+        8px 12px;
+}
+
+
+/* =========================================================
+   MEMBER ROW
+========================================================= */
+
+.member-row {
+
+    min-height:
+        66px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        13px;
+
+    padding:
+        9px 12px;
+
+    border-radius:
+        11px;
+
+    transition:
+        background .16s ease,
+        border-color .16s ease;
+}
+
+
+.member-row:hover {
+
+    background:
+        rgba(59, 130, 246, .055);
+}
+
+
+/* =========================================================
+   AVATAR
+========================================================= */
+
+.member-avatar {
+
+    width:
+        38px;
+
+    height:
+        38px;
+
+    flex-shrink:
+        0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        10px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #2563EB,
+            #1D4ED8
+        );
+
+    border:
+        1px solid
+        rgba(96, 165, 250, .18);
+
+    color:
+        #FFFFFF;
+
+    font-size:
+        14px;
+
+    font-weight:
+        650;
+
+    box-shadow:
+        0 0 16px
+        rgba(37, 99, 235, .12);
+}
+
+
+/* =========================================================
+   MEMBER INFO
+========================================================= */
+
+.member-info {
+
+    min-width:
+        0;
+
+    flex:
+        1;
+}
+
+
+.member-name {
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+    white-space:
+        nowrap;
+
+    color:
+        #E2E8F0;
+
+    font-size:
+        14px;
+
+    font-weight:
+        550;
+}
+
+
+.member-email {
+
+    margin-top:
+        3px;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+    white-space:
+        nowrap;
+
+    color:
+        #64748B;
+
+    font-size:
+        11px;
+}
+
+
+/* =========================================================
+   ROLE
+========================================================= */
+
+.member-role {
+
+    flex-shrink:
+        0;
+}
+
+
+.role-badge {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-width:
+        72px;
+
+    padding:
+        6px 10px;
+
+    border-radius:
+        7px;
+
+    font-size:
+        11px;
+
+    font-weight:
+        650;
+
+    text-transform:
+        capitalize;
+}
+
+
+.role-select {
+
+    min-width:
+        100px;
+
+    padding:
+        7px 28px 7px 9px;
+
+    border:
+        1px solid
+        rgba(96, 165, 250, .14);
+
+    border-radius:
+        8px;
+
+    outline:
+        none;
+
+    background:
+        #111827;
+
+    color:
+        #CBD5E1;
+
+    font-family:
+        inherit;
+
+    font-size:
+        11px;
+
+    font-weight:
+        600;
+
+    cursor:
+        pointer;
+}
+
+
+/* =========================================================
+   OWNER ROLE
+========================================================= */
+
+.role-owner {
+
+    color:
+        #FBBF24;
+
+    background:
+        rgba(245, 158, 11, .08);
+
+    border:
+        1px solid
+        rgba(245, 158, 11, .18);
+}
+
+
+/* =========================================================
+   EDITOR ROLE
+========================================================= */
+
+.role-editor {
+
+    color:
+        #60A5FA;
+
+    background:
+        rgba(59, 130, 246, .10);
+
+    border:
+        1px solid
+        rgba(59, 130, 246, .20);
+}
+
+
+/* =========================================================
+   VIEWER ROLE
+========================================================= */
+
+.role-viewer {
+
+    color:
+        #A78BFA;
+
+    background:
+        rgba(139, 92, 246, .08);
+
+    border:
+        1px solid
+        rgba(139, 92, 246, .18);
+}
+
+
+/* =========================================================
+   REMOVE MEMBER
+========================================================= */
+
+.remove-member-btn {
+
+    flex-shrink:
+        0;
+
+    padding:
+        7px 10px;
+
+    border:
+        1px solid
+        rgba(239, 68, 68, .18);
+
+    border-radius:
+        7px;
+
+    background:
+        rgba(239, 68, 68, .07);
+
+    color:
+        #F87171;
+
+    font-family:
+        inherit;
+
+    font-size:
+        11px;
+
+    font-weight:
+        550;
+
+    cursor:
+        pointer;
+
+    transition:
+        background .18s ease,
+        border-color .18s ease,
+        color .18s ease;
+}
+
+
+.remove-member-btn:hover {
+
+    background:
+        rgba(239, 68, 68, .14);
+
+    border-color:
+        rgba(239, 68, 68, .35);
+
+    color:
+        #FCA5A5;
+}
+
+
+/* =========================================================
+   STATES
+========================================================= */
+
+.members-loading,
+.members-empty {
+
+    padding:
+        45px 20px;
+
+    text-align:
+        center;
+
+    color:
+        #64748B;
+
+    font-size:
+        13px;
+}
+
+
+.members-error {
+
+    margin:
+        12px 26px 0;
+
+    padding:
+        10px 12px;
+
+    border:
+        1px solid
+        rgba(239, 68, 68, .18);
+
+    border-radius:
+        8px;
+
+    background:
+        rgba(239, 68, 68, .07);
+
+    color:
+        #FCA5A5;
+
+    font-size:
+        12px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.members-footer {
+
+    padding:
+        15px 26px;
+
+    border-top:
+        1px solid
+        rgba(96, 165, 250, .08);
+}
+
+
+.members-footer p {
+
+    margin:
+        0;
+
+    color:
+        #64748B;
+
+    font-size:
+        11px;
+
+    line-height:
+        1.5;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.members-list::-webkit-scrollbar {
+
+    width:
+        6px;
+}
+
+
+.members-list::-webkit-scrollbar-track {
+
+    background:
+        transparent;
+}
+
+
+.members-list::-webkit-scrollbar-thumb {
+
+    border-radius:
+        10px;
+
+    background:
+        rgba(96, 165, 250, .16);
+}
+
+
+.members-list::-webkit-scrollbar-thumb:hover {
+
+    background:
+        rgba(96, 165, 250, .28);
+}
+
+
+/* =========================================================
+   ADD MEMBER
+========================================================= */
+
+.invite-member-form {
+
+    margin:
+        18px 0;
+
+    padding:
+        16px;
+
+    border:
+        1px solid
+        rgba(96, 165, 250, .10);
+
+    border-radius:
+        12px;
+
+    background:
+        rgba(59, 130, 246, .035);
+}
+
+
+.invite-form-title {
+
+    margin-bottom:
+        10px;
+
+    color:
+        #F8FAFC;
+
+    font-size:
+        13px;
+
+    font-weight:
+        600;
+}
+
+
+.invite-form-row {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+}
+
+
+.invite-form-row input,
+.invite-form-row select {
+
+    height:
+        38px;
+
+    box-sizing:
+        border-box;
+
+    border:
+        1px solid
+        rgba(96, 165, 250, .13);
+
+    border-radius:
+        8px;
+
+    background:
+        #111827;
+
+    color:
+        #E2E8F0;
+
+    font-family:
+        inherit;
+
+    font-size:
+        13px;
+
+    outline:
+        none;
+
+    transition:
+        border-color .18s ease,
+        box-shadow .18s ease;
+}
+
+
+.invite-form-row input {
+
+    flex:
+        1;
+
+    min-width:
+        0;
+
+    padding:
+        0 12px;
+}
+
+
+.invite-form-row select {
+
+    width:
+        120px;
+
+    padding:
+        0 10px;
+}
+
+
+.invite-form-row input:focus,
+.invite-form-row select:focus {
+
+    border-color:
+        #3B82F6;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(59, 130, 246, .08);
+}
+
+
+.invite-form-row button {
+
+    height:
+        38px;
+
+    padding:
+        0 16px;
+
+    border:
+        none;
+
+    border-radius:
+        8px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #3B82F6,
+            #2563EB
+        );
+
+    color:
+        #FFFFFF;
+
+    font-family:
+        inherit;
+
+    font-size:
+        13px;
+
+    font-weight:
+        600;
+
+    cursor:
+        pointer;
+
+    transition:
+        background .18s ease,
+        transform .18s ease,
+        box-shadow .18s ease;
+}
+
+
+.invite-form-row button:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #60A5FA,
+            #2563EB
+        );
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 7px 18px
+        rgba(37, 99, 235, .20);
+}
+
+
+.invite-form-row button:disabled {
+
+    opacity:
+        .5;
+
+    cursor:
+        not-allowed;
+
+    transform:
+        none;
+
+    box-shadow:
+        none;
+}
+
+
+/* =========================================================
+   REMOVE CONFIRMATION OVERLAY
+========================================================= */
+
+.remove-confirm-overlay {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        2000;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        20px;
+
+    background:
+        rgba(2, 6, 23, .76);
+
+    backdrop-filter:
+        blur(7px);
+}
+
+
+/* =========================================================
+   REMOVE CONFIRMATION MODAL
+========================================================= */
+
+.remove-confirm-modal {
+
+    width:
+        min(420px, 100%);
+
+    box-sizing:
+        border-box;
+
+    padding:
+        26px;
+
+    border:
+        1px solid
+        rgba(96, 165, 250, .13);
+
+    border-radius:
+        16px;
+
+    background:
+
+        radial-gradient(
+            circle at 0% 0%,
+            rgba(59, 130, 246, .07),
+            transparent 45%
+        ),
+
+        #111827;
+
+    box-shadow:
+
+        0 24px 70px
+        rgba(0, 0, 0, .55),
+
+        0 0 30px
+        rgba(59, 130, 246, .05);
+}
+
+
+/* =========================================================
+   REMOVE ICON
+========================================================= */
+
+.remove-confirm-icon {
+
+    width:
+        38px;
+
+    height:
+        38px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    margin-bottom:
+        14px;
+
+    border-radius:
+        10px;
+
+    background:
+        rgba(239, 68, 68, .10);
+
+    border:
+        1px solid
+        rgba(248, 113, 113, .12);
+
+    color:
+        #F87171;
+
+    font-size:
+        18px;
+
+    font-weight:
+        700;
+}
+
+
+/* =========================================================
+   CONFIRMATION TEXT
+========================================================= */
+
+.remove-confirm-modal h3 {
+
+    margin:
+        0 0 8px;
+
+    color:
+        #F8FAFC;
+
+    font-size:
+        18px;
+
+    font-weight:
+        650;
+}
+
+
+.remove-confirm-modal p {
+
+    margin:
+        0;
+
+    color:
+        #94A3B8;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.6;
+}
+
+
+.remove-confirm-modal strong {
+
+    color:
+        #E2E8F0;
+}
+
+
+/* =========================================================
+   CONFIRMATION ACTIONS
+========================================================= */
+
+.remove-confirm-actions {
+
+    display:
+        flex;
+
+    justify-content:
+        flex-end;
+
+    gap:
+        10px;
+
+    margin-top:
+        24px;
+}
+
+
+.cancel-remove-btn,
+.confirm-remove-btn {
+
+    height:
+        38px;
+
+    padding:
+        0 15px;
+
+    border-radius:
+        8px;
+
+    font-family:
+        inherit;
+
+    font-size:
+        13px;
+
+    font-weight:
+        600;
+
+    cursor:
+        pointer;
+
+    transition:
+        background .18s ease,
+        border-color .18s ease,
+        transform .18s ease;
+}
+
+
+/* =========================================================
+   CANCEL
+========================================================= */
+
+.cancel-remove-btn {
+
+    border:
+        1px solid
+        rgba(96, 165, 250, .12);
+
+    background:
+        #1E293B;
+
+    color:
+        #CBD5E1;
+}
+
+
+.cancel-remove-btn:hover {
+
+    background:
+        #273449;
+
+    border-color:
+        rgba(96, 165, 250, .20);
+}
+
+
+/* =========================================================
+   CONFIRM REMOVE
+========================================================= */
+
+.confirm-remove-btn {
+
+    border:
+        1px solid
+        rgba(239, 68, 68, .35);
+
+    background:
+        #DC2626;
+
+    color:
+        #FFFFFF;
+}
+
+
+.confirm-remove-btn:hover {
+
+    background:
+        #B91C1C;
+
+    border-color:
+        rgba(248, 113, 113, .45);
+}
+
+
+.cancel-remove-btn:disabled,
+.confirm-remove-btn:disabled {
+
+    opacity:
+        .5;
+
+    cursor:
+        not-allowed;
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.members-close-btn:focus-visible,
+.role-select:focus-visible,
+.remove-member-btn:focus-visible,
+.invite-form-row input:focus-visible,
+.invite-form-row select:focus-visible,
+.invite-form-row button:focus-visible,
+.cancel-remove-btn:focus-visible,
+.confirm-remove-btn:focus-visible {
+
+    outline:
+        2px solid
+        #60A5FA;
+
+    outline-offset:
+        2px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .members-overlay {
+
+        padding:
+            12px;
+
+        align-items:
+            flex-end;
+    }
+
+
+    .members-panel {
+
+        width:
+            100%;
+
+        max-height:
+            88vh;
+
+        border-radius:
+            16px 16px 0 0;
+    }
+
+
+    .members-header {
+
+        padding:
+            20px 18px 16px;
+    }
+
+
+    .members-summary {
+
+        padding:
+            12px 18px;
+    }
+
+
+    .summary-item {
+
+        min-width:
+            0;
+
+        flex:
+            1;
+    }
+
+
+    .members-list {
+
+        padding:
+            7px 8px;
+    }
+
+
+    .member-row {
+
+        gap:
+            9px;
+
+        padding:
+            9px 7px;
+    }
+
+
+    .member-email {
+
+        display:
+            none;
+    }
+
+
+    .remove-member-btn {
+
+        padding:
+            6px 8px;
+    }
+
+
+    .members-footer {
+
+        padding:
+            13px 18px;
+    }
+
+
+    .invite-form-row {
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+    }
+
+
+    .invite-form-row input,
+    .invite-form-row select,
+    .invite-form-row button {
+
+        width:
+            100%;
+    }
+
+
+    .remove-confirm-modal {
+
+        padding:
+            22px;
+    }
+
+}
