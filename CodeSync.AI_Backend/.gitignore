@@ -33,4 +33,5 @@ build/
 .vscode/
 
 src/main/resources/application-local.properties
-src/main/java/com.project.CodeSync.AI_Backend/ai
+src/main/java/com.project.CodeSync.AI_Backend/ai/GroqClient
+src/main/java/com.project.CodeSync.AI_Backend/ai/GroqConfig
