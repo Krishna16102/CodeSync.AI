@@ -22,7 +22,7 @@ public class GroqClient {
     private final WebClient groqWebClient;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    @Value("${groq.model:llama-3.3-70b-versatile}")
+    @Value("${groq.model}")
     private String model;
 
     public void streamMessage(
