@@ -60,9 +60,6 @@ public class ProjectMemberServiceImpl
 
         Long userId =
                 authUtil.getCurrentUserId();
-
-
-
         projectPermissionService.requireCanView(
                 projectId,
                 userId
@@ -105,7 +102,7 @@ public class ProjectMemberServiceImpl
                         .findById(projectId)
                         .orElseThrow(
                                 () ->
-                                        new ResourceNotFoundException(
+                                          new ResourceNotFoundException(
                                                 "Project",
                                                 projectId.toString()
                                         )

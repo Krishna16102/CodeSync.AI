@@ -36,8 +36,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
         String authorization =
                 request.getHeader("Authorization");
-
-
         log.info(
                 "Authorization header present: {}",
                 authorization != null
@@ -62,12 +60,8 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             return;
         }
 
-
-
         String token =
                 authorization.substring(7);
-
-
         try {
 
             JwtUserPrincipal user =
@@ -95,7 +89,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                             authentication
                     );
 
-
             log.info(
                     "Authentication successfully set."
             );
@@ -109,11 +102,8 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                     e
             );
 
-
-
             SecurityContextHolder
                     .clearContext();
-
 
             response.setStatus(
                     HttpServletResponse.SC_UNAUTHORIZED
@@ -134,8 +124,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
             return;
         }
-
-
         log.info(
                 "Authentication before controller: {}",
                 SecurityContextHolder
@@ -143,12 +131,10 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                         .getAuthentication()
         );
 
-
         filterChain.doFilter(
                 request,
                 response
         );
-
 
         log.info(
                 "Response status: {}",

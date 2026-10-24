@@ -37,21 +37,12 @@ import java.util.List;
 @Transactional
 public class ProjectServiceImpl
         implements ProjectService {
-
-
     private ProjectRepository projectRepository;
-
     private UserRepository userRepository;
-
     private ProjectMapper projectMapper;
-
     private ProjectMemberRepository projectMemberRepository;
-
     private AuthUtil authUtil;
-
     private UserMapper userMapper;
-
-
 
     @Override
     public ProjectResponse createProject(
@@ -60,34 +51,26 @@ public class ProjectServiceImpl
 
         Long userId =
                 authUtil.getCurrentUserId();
-
-
         User owner =
                 userRepository.getReferenceById(
                         userId
                 );
-
 
         Project project =
                 Project.builder()
                         .name(request.name())
                         .isPublic(false)
                         .build();
-
-
         project =
                 projectRepository.save(
                         project
                 );
-
 
         ProjectMemberId projectMemberId =
                 new ProjectMemberId(
                         project.getId(),
                         owner.getId()
                 );
-
-
         ProjectMember projectMember =
                 ProjectMember.builder()
                         .id(projectMemberId)
@@ -98,17 +81,14 @@ public class ProjectServiceImpl
                         .project(project)
                         .build();
 
-
         projectMemberRepository.save(
                 projectMember
         );
-
 
         ProjectResponse response =
                 projectMapper.toProjectResponse(
                         project
                 );
-
 
         return new ProjectResponse(
                 response.id(),
@@ -129,14 +109,11 @@ public class ProjectServiceImpl
 
         Long userId =
                 authUtil.getCurrentUserId();
-
-
         var projects =
                 projectRepository
                         .findAllAccessibleByUser(
                                 userId
                         );
-
 
         return projectMapper
                 .toListOfProjectSummaryResponse(
@@ -144,24 +121,18 @@ public class ProjectServiceImpl
                 );
     }
 
-
-
     @Override
     public ProjectResponse getUserProjectById(
             Long id
     ) {
-
         Long userId =
                 authUtil.getCurrentUserId();
-
 
         Project project =
                 getAccessibleProjectById(
                         id,
                         userId
                 );
-
-
 
         User owner =
                 projectMemberRepository
@@ -177,8 +148,6 @@ public class ProjectServiceImpl
                                         )
                         )
                         .getUser();
-
-
         ProjectResponse response =
                 projectMapper.toProjectResponse(
                         project
@@ -206,13 +175,10 @@ public class ProjectServiceImpl
 
         Long userId =
                 authUtil.getCurrentUserId();
-
-
         requireOwner(
                 id,
                 userId
         );
-
 
         Project project =
                 getAccessibleProjectById(
@@ -248,12 +214,10 @@ public class ProjectServiceImpl
                         )
                         .getUser();
 
-
         ProjectResponse response =
                 projectMapper.toProjectResponse(
                         project
                 );
-
 
         return new ProjectResponse(
                 response.id(),

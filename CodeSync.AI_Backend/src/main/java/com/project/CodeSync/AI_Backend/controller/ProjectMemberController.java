@@ -20,9 +20,6 @@ import java.util.List;
 public class ProjectMemberController {
 
     private final ProjectMemberService projectMemberService;
-
-
-
     @GetMapping
     public ResponseEntity<List<MemberResponse>> getProjectMembers(
             @PathVariable Long projectId

@@ -30,8 +30,6 @@ public class WebSecurityConfig {
 
     private final UserDetailsService userDetailsService;
 
-
-
     @Bean
     public DaoAuthenticationProvider authenticationProvider(
             PasswordEncoder passwordEncoder
@@ -57,59 +55,38 @@ public class WebSecurityConfig {
     ) throws Exception {
 
         http
-
-
                 .csrf(csrf ->
                         csrf.disable()
-                )
-
-
+                )// Cross-Site Request Forgery.
 
                 .cors(cors ->
                         cors.configurationSource(
                                 corsConfigurationSource()
                         )
-                )
-
+                )// Cross-Origin Resource Sharing.
 
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(
                                 SessionCreationPolicy.STATELESS
                         )
                 )
-
-
-
                 .authorizeHttpRequests(auth -> auth
-
-
 
                         .dispatcherTypeMatchers(
                                 DispatcherType.ASYNC
                         ).permitAll()
-
-
 
                         .requestMatchers(
                                 HttpMethod.OPTIONS,
                                 "/**"
                         ).permitAll()
 
-
-
-
                         .requestMatchers(
                                 "/api/auth/**"
                         ).permitAll()
 
-
-
-
                         .anyRequest().authenticated()
                 )
-
-
-
 
                 .addFilterBefore(
                         jwtAuthFilter,
@@ -127,16 +104,11 @@ public class WebSecurityConfig {
         CorsConfiguration configuration =
                 new CorsConfiguration();
 
-
-
-
         configuration.setAllowedOrigins(
                 List.of(
                         "http://localhost:5173"
                 )
         );
-
-
 
         configuration.setAllowedMethods(
                 List.of(
@@ -149,13 +121,9 @@ public class WebSecurityConfig {
                 )
         );
 
-
-
         configuration.setAllowedHeaders(
                 List.of("*")
         );
-
-
 
         configuration.setAllowCredentials(
                 true
@@ -183,8 +151,6 @@ public class WebSecurityConfig {
         return new BCryptPasswordEncoder();
 
     }
-
-
 
     @Bean
     public AuthenticationManager authenticationManager(

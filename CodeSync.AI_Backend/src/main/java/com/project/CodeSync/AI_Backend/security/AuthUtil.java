@@ -23,7 +23,7 @@ public class AuthUtil {
     @Value("${jwt.secret-key}")
     private String jwtSecretKey;
 
-    private SecretKey getSecretKey() {
+     private SecretKey getSecretKey() {
         return Keys.hmacShaKeyFor(jwtSecretKey.getBytes(StandardCharsets.UTF_8));
     }
 // This method converts your string into bytes, then wraps those bytes into a

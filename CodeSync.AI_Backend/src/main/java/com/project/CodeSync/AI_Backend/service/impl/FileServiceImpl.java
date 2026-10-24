@@ -42,8 +42,6 @@ public class FileServiceImpl
 
     AuthUtil authUtil;
 
-
-
     @Override
     public List<FileNode> getFileTree(
             Long projectId,
